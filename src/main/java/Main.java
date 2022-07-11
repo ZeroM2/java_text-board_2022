@@ -2,18 +2,19 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static void makeTestData(ArrayList<Article> articles){
+    static void makeTestData(ArrayList<Article> articles) {
         articles.add(new Article(1, "제목1", "내용1"));
         articles.add(new Article(2, "제목2", "내용2"));
         articles.add(new Article(3, "제목3", "내용3"));
     }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("== 게시판 v 0.1 ==");
 
         System.out.println("== 프로그램 시작 ==");
         int articlesLastId = 0;
-        Article lastArticle = null;
+
         ArrayList<Article> articles = new ArrayList<Article>();
         makeTestData(articles);
 
@@ -31,18 +32,19 @@ public class Main {
                 System.out.println("-----------------");
                 System.out.println("번호 / 제목");
                 System.out.println("-----------------");
-                for (int i = articles.size() -1; i >= 0; i-- ) {
+                for (int i = articles.size() - 1; i >= 0; i--) {
                     Article article = articles.get(i);
                     System.out.printf("%d / %s\n", article.id, article.title);
                 }
 
             } else if (cmd.equals("/usr/article/detail")) {
 
-                if (lastArticle == null) {
+                if (articles.isEmpty()) {
                     System.out.println("게시물이 존재하지 않습니다..");
                     continue;
                 }
-                Article article = lastArticle;
+                Article article = articles.get(articles.size() - 1);
+
                 System.out.println("=게시물 상세내용=");
                 System.out.printf("번호 : %d\n", article.id);
                 System.out.printf("제목 : %s\n ", article.title);
@@ -61,7 +63,6 @@ public class Main {
                 Article article = new Article(id, title, body);
                 lastArticle = article;
                 articles.add(article);
-
 
 
                 System.out.println("생성된 게시물 객체 : " + article);
