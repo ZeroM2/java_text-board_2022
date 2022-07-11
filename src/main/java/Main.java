@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    static void makeTestData(ArrayList<Article> articles){
+        articles.add(new Article(1, "제목1", "내용1"));
+        articles.add(new Article(2, "제목2", "내용2"));
+        articles.add(new Article(3, "제목3", "내용3"));
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("== 게시판 v 0.1 ==");
@@ -10,12 +15,8 @@ public class Main {
         int articlesLastId = 0;
         Article lastArticle = null;
         ArrayList<Article> articles = new ArrayList<Article>();
+        makeTestData(articles);
 
-        //테스트 데이터 3개 등록.  시작
-        articles.add(new Article(1, "제목1", "내용1"));
-        articles.add(new Article(2, "제목2", "내용2"));
-        articles.add(new Article(3, "제목3", "내용3"));
-        //테스트 데이터 3개 등록.  시작
         while (true) {
             System.out.printf("명령) ");
             String cmd = sc.nextLine();
