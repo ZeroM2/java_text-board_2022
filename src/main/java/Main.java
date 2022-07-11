@@ -24,7 +24,7 @@ public class Main {
         while (true) {
             System.out.printf("명령) ");
             String cmd = sc.nextLine();
-            if (cmd.equals("exit")) {
+            if (cmd.equals("exi t")) {
                 break;
             } else if (cmd.equals("/usr/article/list")) {
                 System.out.println("= 게시물 리스트=");
@@ -60,6 +60,8 @@ public class Main {
 
                 Article article = new Article(id, title, body);
                 lastArticle = article;
+                articles.add(article);
+
 
 
                 System.out.println("생성된 게시물 객체 : " + article);
