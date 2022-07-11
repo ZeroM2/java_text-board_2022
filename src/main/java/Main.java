@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    static void makeTestData(ArrayList<Article> articles) {
+    static void makeTestData(List<Article> articles) {  //ArrayList지만 Array는 생략가능
         articles.add(new Article(1, "제목1", "내용1"));
         articles.add(new Article(2, "제목2", "내용2"));
         articles.add(new Article(3, "제목3", "내용3"));
@@ -15,7 +16,7 @@ public class Main {
         System.out.println("== 프로그램 시작 ==");
         int articlesLastId = 0;
 
-        ArrayList<Article> articles = new ArrayList<Article>();
+        List<Article> articles = new ArrayList<>();  //ArrayList지만 Array는 생략가능
         makeTestData(articles);
 
         if (articles.size() > 0) {
@@ -61,7 +62,7 @@ public class Main {
                 articlesLastId = id;
 
                 Article article = new Article(id, title, body);
-                lastArticle = article;
+
                 articles.add(article);
 
 
